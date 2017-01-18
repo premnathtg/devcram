@@ -6,14 +6,14 @@ jobs:
      - IN: gearmand
      - IN: redisd
      - IN: web-docker-opts
-        applyTo:
+       applyTo:
           - devcram-web
-      - IN: g-docker-opts
-        applyTo:
+     - IN: g-docker-opts
+       applyTo:
           - gearmand
           
-      - IN: r-docker-opts
-        applyTo:          
+     - IN: r-docker-opts
+       applyTo:          
           - redisd
      - TASK: managed
 
