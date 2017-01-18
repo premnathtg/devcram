@@ -1,0 +1,41 @@
+resources:
+  - name: devcram-web
+    type: image
+    integration: Amazon-DEV
+    pointer:
+      sourceName: "680976004409.dkr.ecr.us-east-1.amazonaws.com/devimages"
+      isPull: false
+    seed:
+      versionName: "wwwdev.69"
+      
+  - name: gearmand
+    type: image
+    integration: docker-integration
+    pointer:
+      sourceName: "kendu/gearman"
+      isPull: false
+    seed:
+      versionName: "latest"
+      
+  - name: redisd
+    type: image
+    integration: docker-integration
+    pointer:
+      sourceName: "redis"
+      isPull: false
+    seed:
+      versionName: "latest"
+      
+  
+    links:
+        - devcram-web
+        - redisd
+        - gearmand
+
+        
+  - name: selenium
+    type: cluster
+    integration: az-ecs
+    pointer:
+      sourceName : "selenium" #name of the cluster to which we are deploying
+      region: "us-east-1"

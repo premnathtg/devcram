@@ -1,0 +1,27 @@
+jobs:
+  - name: devcram-manifest
+    type: manifest
+    steps:
+     - IN: devcram-web
+     - IN: gearmand
+     - IN: redisd
+     - IN: web-docker-opts
+        applyTo:
+          - devcram-web
+      - IN: g-docker-opts
+        applyTo:
+          - gearmand
+          
+      - IN: r-docker-opts
+        applyTo:          
+          - redisd
+     - TASK: managed
+
+  - name: devcram-deploy
+    type: deploy
+    steps:
+      - IN: devcram-manifest
+      - IN: docker-opts
+      - IN: selenium
+      - TASK: managed
+        deployMethod: upgrade
