@@ -26,6 +26,31 @@ resources:
     seed:
       versionName: "latest"
       
+  - name: web-docker-opts
+    type: dockerOptions
+    version:
+      portMappings:
+        - "0:80"
+      logConfig:
+        type: "json-file"
+
+      
+  - name: g-docker-opts
+    type: dockerOptions
+    version:
+      portMappings:
+        - "0:4370"
+      logConfig:
+        type: "json-file"
+
+  - name: r-docker-opts
+    type: dockerOptions
+    version:
+      portMappings:
+        - "0:6379"
+      logConfig:
+        type: "json-file"        
+
   
     links:
         - devcram-web
