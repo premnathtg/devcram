@@ -58,7 +58,7 @@ resources:
         - gearmand
 
         
-  - name: selenium
+  - name: devcram-clus
     type: cluster
     integration: az-ecs
     pointer:

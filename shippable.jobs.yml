@@ -22,6 +22,6 @@ jobs:
     steps:
       - IN: devcram-manifest
       - IN: docker-opts
-      - IN: selenium
+      - IN: devcram-clus
       - TASK: managed
         deployMethod: upgrade
