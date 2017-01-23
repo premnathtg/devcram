@@ -21,7 +21,6 @@ jobs:
     type: deploy
     steps:
       - IN: devcram-manifest
-      - IN: docker-opts
       - IN: devcram-clus
       - TASK: managed
         deployMethod: upgrade
