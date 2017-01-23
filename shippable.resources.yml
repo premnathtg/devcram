@@ -49,7 +49,14 @@ resources:
       portMappings:
         - "0:6379"
       logConfig:
-        type: "json-file"        
+        type: "json-file"      
+        
+  - name: devcram-clus
+    type: cluster
+    integration: az-ecs
+    pointer:
+      sourceName : "selenium" #name of the cluster to which we are deploying
+      region: "us-east-1"
 
   
     links:
@@ -58,9 +65,4 @@ resources:
         - gearmand
 
         
-  - name: devcram-clus
-    type: cluster
-    integration: az-ecs
-    pointer:
-      sourceName : "selenium" #name of the cluster to which we are deploying
-      region: "us-east-1"
+ 
